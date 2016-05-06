@@ -11,12 +11,12 @@ composer update
 
 Добавляем в app.php
 ```php
-  'Vis\Rating\RatingServiceProvider::class',
+  Vis\Rating\RatingServiceProvider::class,
 ```
 
 Выполняем миграцию таблиц
 ```json
-   php artisan migrate --path=vendor/vis/rating/src/Migrations
+   php artisan migrate --path=vendor/vis/rating_l5/src/Migrations
 ```
 
 Публикуем js файлы
@@ -36,10 +36,10 @@ composer update
 
 Код на странице для голосования
 ```php
-{{Rating::showVote($page)}}
+{!! Rating::showVote($page) !!}
 ```
 
 Код на странице для просмотра рейтинга статьи
 ```php
-{{Rating::showResult($page)}}
+{!! Rating::showResult($page) !!}
 ```
