@@ -47,6 +47,13 @@ class Rating extends Eloquent {
         return View::make('rating::showResult', compact("thisRating"));
     }
 
+    public function getRating($page)
+    {
+        $thisRating = $this->getRatingAndCache($page);
+
+        return $thisRating;
+    }
+
     /*
      * get avg rating this page
      * @param object $page
