@@ -62,7 +62,8 @@ class RatingServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['rating'] = $this->app->share(function ($app) {
+   
+        $this->app->singleton('rating', function () {
             return new Rating();
         });
 
