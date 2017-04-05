@@ -1,12 +1,8 @@
 <?php namespace Vis\Rating;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Response;
-use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Crypt;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
 
@@ -25,6 +21,7 @@ class RatingController extends Controller
         $data = $this->replaceData($data);
 
         $isNotValidation = Rating::isNotValid($data);
+
         if ($isNotValidation) {
             return $isNotValidation;
         }
@@ -71,5 +68,4 @@ class RatingController extends Controller
 
         return $data;
     }
-
 }

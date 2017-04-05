@@ -1,6 +1,7 @@
 {
   "name": "vis/rating_l5",
   "description": "Rating for L5",
+  "license": "proprietary",
   "authors": [
     {
       "name": "vis",

@@ -1,9 +1,7 @@
 <?php namespace Vis\Rating;
 
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
-use Symfony\Component\Finder\Finder;
 use Vis\Ratings\Rating;
 
 class RatingServiceProvider extends ServiceProvider
@@ -62,7 +60,7 @@ class RatingServiceProvider extends ServiceProvider
      */
     public function register()
     {
-   
+
         $this->app->singleton('rating', function () {
             return new Rating();
         });
