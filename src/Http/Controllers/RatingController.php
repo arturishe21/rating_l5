@@ -25,12 +25,18 @@ class RatingController extends Controller
         if ($isNotValidation) {
             return $isNotValidation;
         }
+        
+        if (function_exists('__t')) {
+            $message = __t('Вы уже голосовали');
+        } else {
+            $message = 'Вы уже голосовали';
+        }
 
         if (Rating::isCheckIp($data)) {
             return Response::json(
                 array(
                     "status" => "error",
-                    "error_messages" => __t("Вы уже голосовали")
+                    "error_messages" => $message
                 )
             );
         } else {
@@ -39,10 +45,16 @@ class RatingController extends Controller
 
             Rating::doClearCache();
 
+            if (function_exists('__t')) {
+                $message = __t('Спасибо. Ваш голос учтен');
+            } else {
+                $message = 'Спасибо. Ваш голос учтен';
+            }
+
             return Response::json(
                 array(
                     "status" => "success",
-                    "ok_messages" => __t("Спасибо. Ваш голос учтен")
+                    "ok_messages" => $message
                 )
             );
         }
