@@ -30,7 +30,7 @@ class RatingController extends Controller
             return Response::json(
                 array(
                     "status" => "error",
-                    "error_messages" => "Вы уже голосовали"
+                    "error_messages" => __t("Вы уже голосовали")
                 )
             );
         } else {
@@ -42,7 +42,7 @@ class RatingController extends Controller
             return Response::json(
                 array(
                     "status" => "success",
-                    "ok_messages" => "Спасибо. Ваш голос учтен"
+                    "ok_messages" => __t("Спасибо. Ваш голос учтен")
                 )
             );
         }
